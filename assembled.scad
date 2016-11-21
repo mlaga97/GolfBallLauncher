@@ -17,20 +17,25 @@ module assembly() {
 		translate([0,0,-10])
 			color([224/255, 223/255, 219/255])
 				rods();
-		translate([0,0,80-250+350]) {
-			front();
-			translate([0,0,0])
-				mirror([0,0,1])
-					frontcap();
-		}
+		color([50/255, 70/255, 200/255])
+			translate([0,0,80-250+350]) {
+				import("STLs/front.stl");
+				translate([0,0,0])
+					mirror([0,0,1])
+						import("STLs/cap.stl");
+			}
 		translate([0,0,80-250+326-10.5-drawn_back]) {
-			cart();
+			color([224/255, 223/255, 219/255])
+				springs(length=drawn_back+50);
+			color([50/255, 70/255, 200/255])
+				import("STLs/cart.stl");
 		}
 		translate([0,0,50-250]) {
 			color([224/255, 223/255, 219/255])
 				base_rods();
-			mirror([0,0,1])
-				base();
+			color([50/255, 70/255, 200/255])
+				mirror([0,0,1])
+					import("STLs/base.stl");
 		}
 	}
 }

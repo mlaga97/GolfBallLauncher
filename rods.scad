@@ -19,3 +19,18 @@ module base_rods() {
 				cylinder(d=8.5, h=355, center = true);
 	}
 }
+
+module springs() {
+	rotate([0,0,45])
+		translate([25,-5,-20])
+			cube([0.2,10,length], center=false);
+	rotate([0,0,-45])
+		translate([25,-5,-20])
+			cube([0.2,10,length], center=false);
+	rotate([0,0,135])
+		translate([25,-5,-20])
+			cube([0.2,10,length], center=false);
+	rotate([0,0,-135])
+		translate([25,-5,-20])
+			cube([0.2,10,length], center=false);
+}
